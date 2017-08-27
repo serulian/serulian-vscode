@@ -1,0 +1,294 @@
+{
+  "name": "serulian",
+  "scopeName": "source.serulian",
+  "fileTypes": [
+      "seru"
+  ],
+  "foldingStartMarker": "\\{\\s*$",
+  "foldingStopMarker": "^\\s*\\}",
+  "patterns": [
+      {
+          "include": "#strings"
+      },
+      {
+          "include": "#keywords"
+      },
+      {
+          "include": "#constants"
+      },
+      {
+          "include": "#operators"
+      },
+      {
+          "include": "#comments"
+      },
+      {
+          "include": "#sml"
+      },
+      {
+          "include": "#decorator"
+      }
+
+  ],
+  "repository": {
+    "identifier": {
+      "patterns": [
+        {
+          "match": "[a-zA-Z][a-zA-Z0-9]*"
+        }
+      ]
+    },
+    "decorator": {
+      "patterns": [
+        {
+          "match": "@\\w+(\\.\\w+)*",
+          "name": "storage.decorator"
+        }
+      ]
+    },
+    "sml": {
+      "patterns": [
+        {
+          "match": "<[a-zA-Z][a-zA-Z0-9]*\\s*/>",
+          "name": "variable.sml"
+        },
+        {
+          "match": "<[a-zA-Z][a-zA-Z0-9]*\\s+>",
+          "name": "variable.sml"
+        },
+        {
+          "match": "<[a-zA-Z][a-zA-Z0-9]*\\s+(?=([A-Za-z])|(@))",
+          "name": "variable.sml"
+        },
+        {
+          "match": "</[a-zA-Z][a-zA-Z0-9]*>",
+          "name": "variable.sml"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "begin": "/\\*\\*",
+          "end": "\\*/",
+          "name": "comment.block"
+        },
+        {
+          "match": "((//).*)$",
+          "name": "comment.inline"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+      	{
+					"match": "(=)",
+					"name": "keyword.operator.equals"
+        }        
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "`",
+          "end": "`",
+          "name": "string.interpolated.template"
+        },
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double",
+          "patterns": [
+            {
+              "match": "\\n",
+              "name": "invalid.string.newline"
+            },
+            {
+              "name": "constant.character.escape.untitled",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "begin": "'",
+          "end": "'",
+          "name": "string.quoted.single",
+          "patterns": [
+            {
+              "match": "\\n",
+              "name": "invalid.string.newline"
+            },
+            {
+              "name": "constant.character.escape.untitled",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "constants": {
+			"patterns": [
+				{
+					"match": "\\bval\\b",
+					"name": "variable.language.val"
+        },
+				{
+					"match": "\\bthis\\b",
+					"name": "variable.language.this"
+        },
+				{
+					"match": "\\bprincipal\\b",
+					"name": "variable.language.principal"
+        },
+				{
+					"match": "\\btrue\\b",
+					"name": "constant.language.true"
+        },
+				{
+					"match": "\\bfalse\\b",
+					"name": "constant.language.false"
+        },
+				{
+					"match": "\\bnull\\b",
+					"name": "constant.language.null"
+        },
+        {
+					"match": "\\bvoid\\b",
+					"name": "constant.language.void"
+        },
+				{
+					"match": "\\bany\\b",
+					"name": "constant.language.any"
+        }
+      ]
+    },
+    "keywords": {
+			"patterns": [
+				{
+					"match": "\\bimport\\b",
+					"name": "keyword.import"
+        },
+				{
+					"match": "\\bfrom\\b",
+					"name": "keyword.import.from"
+        },
+				{
+					"match": "\\bas\\b",
+					"name": "keyword.as"
+        },
+        {
+					"match": "\\bclass\\b",
+					"name": "keyword.declaration.type.class"
+        },
+        {
+					"match": "\\binterface\\b",
+					"name": "keyword.declaration.type.interface"
+        },
+        {
+					"match": "\\bagent\\b",
+					"name": "keyword.declaration.type.agent"
+        },
+        {
+					"match": "\\btype\\b",
+					"name": "keyword.declaration.type.nominal"
+        },
+        {
+					"match": "\\bstruct\\b",
+					"name": "keyword.declaration.type.struct"
+        },
+        {
+					"match": "\\bdefault\\b",
+					"name": "keyword.default"
+        },
+        {
+					"match": "\\bfunction\\b",
+					"name": "keyword.member.function"
+        },
+        {
+					"match": "\\bproperty\\b",
+					"name": "keyword.member.property"
+        },
+        {
+					"match": "\\bvar\\b",
+					"name": "keyword.member.var"
+        },
+        {
+					"match": "\\bconstructor\\b",
+					"name": "keyword.member.constructor"
+        },
+        {
+					"match": "\\boperator\\b",
+					"name": "keyword.member.operator"
+        },
+        {
+					"match": "\\bget\\b",
+					"name": "keyword.member.property.get"
+        },
+        {
+					"match": "\\bset\\b",
+					"name": "keyword.member.property.set"
+        },
+				{
+					"match": "\\bif\\b",
+					"name": "keyword.control.conditional.if"
+        },
+				{
+					"match": "\\bfor\\b",
+					"name": "keyword.control.loop.for"
+        },
+				{
+					"match": "\\belse\\b",
+					"name": "keyword.control.conditional.else"
+        },
+				{
+					"match": "\\breturn\\b",
+					"name": "keyword.control.resolve.return"
+        },
+				{
+					"match": "\\breject\\b",
+					"name": "keyword.control.resolve.reject"
+        },
+				{
+					"match": "\\byield\\b",
+					"name": "keyword.control.resolve.yield"
+        },
+				{
+					"match": "\\bbreak\\b",
+					"name": "keyword.control.flow.break"
+        },
+				{
+					"match": "\\bcontinue\\b",
+					"name": "keyword.control.flow.continue"
+        },
+				{
+					"match": "\\bwith\\b",
+					"name": "keyword.control.with"
+        },
+				{
+					"match": "\\bmatch\\b",
+					"name": "keyword.control.match"
+        },
+				{
+					"match": "\\bswitch\\b",
+					"name": "keyword.control.switch"
+        },
+				{
+					"match": "\\bcase\\b",
+					"name": "keyword.control.case"
+        },
+				{
+					"match": "\\bin\\b",
+					"name": "keyword.control.case"
+        },
+				{
+					"match": "\\bis\\b",
+					"name": "keyword.op"
+        },
+				{
+					"match": "\\bnot\\b",
+					"name": "keyword.op"
+        }
+      ]
+    }
+  }
+}

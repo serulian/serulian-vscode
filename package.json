@@ -1,0 +1,104 @@
+{
+    "name": "serulian",
+
+    "version": "0.0.1",
+    "toolkitVersion":  "0.0.1-alpha",
+
+    "license": "See LICENSE",
+    "preview": true,
+    "description": "Serulian Language Support",
+    "displayName": "Serulian",
+    "icon": "serulian.png",
+    "publisher": "serulian",
+    "keywords": ["serulian", "web", "mobile", "webidl", "javascript"],
+    "engines": {
+        "vscode": "^1.8.0"
+    },
+    "categories": [
+        "Languages",
+        "Formatters"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/serulian/serulian-vscode"
+    },
+    "bugs": {
+      "url": "https://github.com/serulian/serulian-vscodeissues"
+    },
+    "main": "./out/client",
+    "activationEvents": [
+        "onLanguage:serulian",
+        "onLanguage:webidl"
+    ],
+    "scripts": {
+        "compile": "tsc -watch -p ./"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^3.1.0"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.33",
+        "@types/node": "^6.0.52",
+        "mkdirp": "^0.5.1",
+        "typescript": "^2.1.5",
+        "vscode": "^1.0.3"
+    },
+    "contributes": {
+        "breakpoints": [
+            {
+                "language": "serulian"
+            }
+        ],
+        "languages": [
+            {
+                "id": "serulian",
+                "aliases": ["Serulian"],
+                "extensions": [".seru"],
+                "configuration": "./syntaxes/serulian-configuration.json"
+            },
+            {
+                "id": "webidl",
+                "aliases": ["WebIDL"],
+                "extensions": [".webidl"]
+            }
+        ],
+        "grammars": [
+            {
+                "language": "serulian",
+                "scopeName": "source.serulian",
+                "path": "./syntaxes/serulian.json"
+            },
+            {
+                "language": "webidl",
+                "scopeName": "source.webidl",
+                "path": "./syntaxes/IDL-Syntax/IDL.tmLanguage"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Serulian configuration",
+            "properties": {
+                "serulian.entrypointSourceFile": {
+                    "type": "string",
+                    "default": "",
+                    "description": "The entrypoint source file for this Serulian project."
+                },
+                "serulian.vcsDevelopmentDirectories": {
+                    "type": ["array"],
+                    "default": [],
+                    "description": "The path(s) of the VCS development directories for this project. If specified, matching packages will be read from these paths in place of VCS."
+                },
+                "serulian.langServerPath": {
+                    "type": ["string", "null"],
+                    "default": null,
+                    "description": "If specified, the path to the language server binary to use."
+                },
+                "serulian.langServerDebug": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the language server will display debug logs."
+                }
+            }
+        }
+    }
+}
