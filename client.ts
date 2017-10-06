@@ -220,7 +220,7 @@ function downloadFile(fullBinaryPath: string, downloadUrl: string, consoleChanne
 
 export function activate(context: ExtensionContext) {
 	var configuration = workspace.getConfiguration('serulian');
-	let extension = extensions.getExtension('Serulian.serulian');
+	let extension = extensions.getExtension('serulian.serulian');
 	let extensionPath = extension.extensionPath;
 	let defaultPath = path.join(extensionPath, DEFAULT_LANGUAGE_SERVER_PATH);
 
