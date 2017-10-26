@@ -1,7 +1,7 @@
 {
     "name": "serulian",
 
-    "version": "0.0.1",
+    "version": "0.0.5",
     "toolkitVersion":  "0.0.1",
 
     "license": "See LICENSE",
@@ -11,9 +11,6 @@
     "icon": "serulian.png",
     "publisher": "serulian",
     "keywords": ["serulian", "web", "mobile", "webidl", "javascript"],
-    "engines": {
-        "vscode": "^1.8.0"
-    },
     "categories": [
         "Languages",
         "Formatters"
@@ -23,17 +20,24 @@
         "url": "https://github.com/serulian/serulian-vscode"
     },
     "bugs": {
-      "url": "https://github.com/serulian/serulian-vscodeissues"
+      "url": "https://github.com/serulian/serulian-vscode/issues"
     },
-    "main": "./out/client",
+    "engines": {
+        "vscode": "^1.17.0"
+    },
     "activationEvents": [
         "onLanguage:serulian",
         "onLanguage:webidl"
     ],
+    "main": "./out/client",
     "scripts": {
-        "compile": "tsc -watch -p ./"
+        "vscode:prepublish": "tsc",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "dependencies": {
+        "mkdirp": "^0.5.1",
+        "vscode": "^1.0.3",
         "vscode-languageclient": "^3.1.0"
     },
     "devDependencies": {

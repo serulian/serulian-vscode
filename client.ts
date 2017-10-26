@@ -102,7 +102,7 @@ function downloadAndInstallSerulianLanguageServer(): Promise<void> {
 }
 
 function downloadAndInstallForPlatform(platform: string, arch: string): Promise<void> {
-	let extension = extensions.getExtension('Serulian.serulian');
+	let extension = extensions.getExtension('serulian.serulian');
 	let extensionPath = extension.extensionPath;
 	let toolkitVersion = extension.packageJSON['toolkitVersion'];
 
