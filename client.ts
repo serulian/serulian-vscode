@@ -259,6 +259,9 @@ export function activate(context: ExtensionContext) {
 	if (configuration['langServerDebug']) {
 		args.push('--debug');
 	}
+	if (configuration['langServerProfile']) {
+		args.push('--profile');
+	}
 
 	let workspaceRootPath = workspace.rootPath;
 	if (configuration['entrypointSourceFile']) {

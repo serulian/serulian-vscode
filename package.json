@@ -97,6 +97,11 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the language server will display debug logs."
+                },
+                "serulian.langServerProfile": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the language server will be profiled."
                 }
             }
         }
