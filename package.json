@@ -2,7 +2,7 @@
     "name": "serulian",
 
     "version": "0.0.1",
-    "toolkitVersion":  "0.0.1-alpha",
+    "toolkitVersion":  "0.0.1",
 
     "license": "See LICENSE",
     "preview": true,
