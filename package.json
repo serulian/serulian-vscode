@@ -1,8 +1,8 @@
 {
     "name": "serulian",
 
-    "version": "0.0.6",
-    "toolkitVersion":  "0.0.2",
+    "version": "0.0.7",
+    "toolkitVersion":  "0.1.0",
 
     "license": "See LICENSE",
     "preview": true,
